@@ -1,1 +1,1 @@
-web: node dist/apps/cool-todo-backend/main.js
+web: node dist/apps/cool-todo-backend/main
