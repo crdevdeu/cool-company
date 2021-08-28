@@ -31,7 +31,7 @@ app.post('/api/todos', (req, res) => {
 app.delete('/api/todos/:id', (req, res) => {
   FaunaDbInstance.deleteDocument('todos', req.params.id)
     .then((result) => {
-      res.sendStatus(result);
+      res.send(result);
     })
     .catch(() => {
       res.sendStatus(500);
