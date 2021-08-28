@@ -1,0 +1,18 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { HomeComponent } from './home.component';
+import { HomeRoutingModule } from './home.routing.module';
+import { NbLayoutModule, NbSidebarModule, NbIconModule } from '@nebular/theme';
+
+@NgModule({
+  declarations: [HomeComponent],
+  exports: [HomeComponent],
+  imports: [
+    NbIconModule,
+    CommonModule,
+    HomeRoutingModule,
+    NbLayoutModule,
+    NbSidebarModule.forRoot(),
+  ],
+})
+export class HomeModule {}
