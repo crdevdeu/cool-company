@@ -1,10 +1,12 @@
 import * as express from 'express';
+import * as cors from 'cors';
 import { FaunaDb } from './app/utils/db/fauna-db';
 import { environment } from './environments/environment';
 
 const { dbHost, dbSecret } = environment;
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 const FaunaDbInstance = new FaunaDb(dbSecret, dbHost);
 
