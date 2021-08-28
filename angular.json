@@ -66,7 +66,10 @@
               "browserTarget": "cool-todo:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "proxyConfig": "apps/cool-todo/proxy.conf.json"
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -88,6 +91,56 @@
           "outputs": ["coverage/apps/cool-todo"],
           "options": {
             "jestConfig": "apps/cool-todo/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "cool-todo-backend": {
+      "root": "apps/cool-todo-backend",
+      "sourceRoot": "apps/cool-todo-backend/src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/cool-todo-backend",
+            "main": "apps/cool-todo-backend/src/main.ts",
+            "tsConfig": "apps/cool-todo-backend/tsconfig.app.json",
+            "assets": ["apps/cool-todo-backend/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/cool-todo-backend/src/environments/environment.ts",
+                  "with": "apps/cool-todo-backend/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "cool-todo-backend:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/cool-todo-backend/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/cool-todo-backend"],
+          "options": {
+            "jestConfig": "apps/cool-todo-backend/jest.config.js",
             "passWithNoTests": true
           }
         }

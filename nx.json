@@ -30,6 +30,9 @@
     "cool-todo": {
       "tags": []
     },
+    "cool-todo-backend": {
+      "tags": []
+    },
     "cool-todo-e2e": {
       "tags": [],
       "implicitDependencies": ["cool-todo"]
