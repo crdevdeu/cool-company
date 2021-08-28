@@ -4,8 +4,13 @@
  */
 
 import * as express from 'express';
+import { FaunaDb } from './app/utils/db/fauna-db';
+import { environment } from './environments/environment';
+
+const { dbHost, dbSecret } = environment;
 
 const app = express();
+const FaunaDbInstance = new FaunaDb(dbSecret, dbHost);
 
 app.get('/api', (req, res) => {
   res.send({ message: 'Welcome to cool-todo-backend!' });
