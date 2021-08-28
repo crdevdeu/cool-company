@@ -14,9 +14,12 @@ export class FaunaDb {
     return this.client.query(
       this.q.If(
         this.q.Exists(this.q.Collection(collectionName)),
-        this.q.Paginate(this.q.Documents(this.q.Collection(collectionName)), {
-          size: 100,
-        }),
+        this.q.Map(
+          this.q.Paginate(this.q.Documents(this.q.Collection(collectionName)), {
+            size: 100,
+          }),
+          this.q.Lambda('ref', this.q.Get(this.q.Var('ref')))
+        ),
         this.q.CreateCollection({ name: collectionName })
       )
     );
