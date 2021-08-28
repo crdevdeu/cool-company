@@ -1,8 +1,3 @@
-/**
- * This is not a production server yet!
- * This is only a minimal backend to get started.
- */
-
 import * as express from 'express';
 import { FaunaDb } from './app/utils/db/fauna-db';
 import { environment } from './environments/environment';
@@ -10,10 +5,47 @@ import { environment } from './environments/environment';
 const { dbHost, dbSecret } = environment;
 
 const app = express();
+app.use(express.json());
 const FaunaDbInstance = new FaunaDb(dbSecret, dbHost);
 
-app.get('/api', (req, res) => {
-  res.send({ message: 'Welcome to cool-todo-backend!' });
+app.get('/api/todos', (_req, res) => {
+  FaunaDbInstance.getCollection('todos')
+    .then((todos) => {
+      res.send(todos.data);
+    })
+    .catch(() => {
+      res.sendStatus(500);
+    });
+});
+
+app.post('/api/todos', (req, res) => {
+  FaunaDbInstance.createDocument('todos', req.body)
+    .then((result) => {
+      res.send(result);
+    })
+    .catch(() => {
+      res.sendStatus(500);
+    });
+});
+
+app.delete('/api/todos/:id', (req, res) => {
+  FaunaDbInstance.deleteDocument('todos', req.params.id)
+    .then((result) => {
+      res.sendStatus(result);
+    })
+    .catch(() => {
+      res.sendStatus(500);
+    });
+});
+
+app.patch('/api/todos/:id', (req, res) => {
+  FaunaDbInstance.updateDocument('todos', req.params.id, req.body)
+    .then((result) => {
+      res.send(result);
+    })
+    .catch(() => {
+      res.sendStatus(500);
+    });
 });
 
 const port = process.env.port || 3333;
