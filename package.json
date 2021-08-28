@@ -9,6 +9,9 @@
     "build": "nx build",
     "test": "nx test"
   },
+  "engines": {
+    "node": "16.x"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "^12.1.0",
