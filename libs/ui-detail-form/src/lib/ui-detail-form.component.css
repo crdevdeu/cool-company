@@ -1,0 +1,31 @@
+:host {
+  width: 70%;
+}
+
+.input-label {
+  margin-right: 5px;
+  display: flex;
+  flex: 1;
+}
+
+.field-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.detail-input {
+  display: flex;
+  flex: 3;
+}
+
+.action-button {
+  margin-right: 5px;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}

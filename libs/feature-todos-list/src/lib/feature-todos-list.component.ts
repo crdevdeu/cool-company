@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'cool-company-feature-todos-list',
@@ -11,11 +12,16 @@ export class FeatureTodosListComponent implements OnInit {
     { name: 'do this thing', id: '3256' },
   ];
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
-  onTodoSave($event: any) {
+  onTodoEdit($event: any) {
+    console.log($event);
+    this.router.navigateByUrl('detail');
+  }
+
+  onTodoRemove($event: any) {
     console.log($event);
   }
 }

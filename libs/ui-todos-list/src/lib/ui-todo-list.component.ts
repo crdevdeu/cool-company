@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'cool-company-ui-todo-list',
@@ -8,28 +8,21 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class UiTodoListComponent implements OnInit {
   todoToEdit: any = null;
-  todosFormGroup: FormGroup;
   @Input() todos: any[] = [];
-  @Output() saveTodo = new EventEmitter<any>();
-  constructor(private fb: FormBuilder) {
-    this.todosFormGroup = this.fb.group({
-      editTodo: [''],
-    });
-  }
+  @Output() editTodo = new EventEmitter<any>();
+  @Output() removeTodo = new EventEmitter<any>();
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {}
 
-  setTodoToEdit(todo: any) {
+  triggerTodoEdit(todo: any) {
     this.todoToEdit = todo.id;
-    this.todosFormGroup.get('editTodo')?.setValue(todo.name);
+
+    // this.todoToEdit = null;
+    this.editTodo.emit(todo);
   }
 
-  saveTodoEdit(todo: any) {
-    // this.todoToEdit = null;
-    const todoNewValue = {
-      id: todo.id,
-      name: this.todosFormGroup.get('editTodo')?.value,
-    };
-    this.saveTodo.emit(todoNewValue);
+  triggerTodoRemove(todo: any) {
+    this.removeTodo.emit(todo);
   }
 }

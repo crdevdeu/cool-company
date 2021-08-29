@@ -1,1 +1,41 @@
-<p>ui-detail-form works!</p>
+<nb-card size="small" class="todo-detail-container">
+  <nb-card-header>
+    Edit todo
+  </nb-card-header>
+  <nb-card-body class="todo-detail-content">
+    <div class="field-container">
+       <div for="todo-name" class="input-label">
+        Name:
+      </div>
+      <input type="text" name="todo-name" class="detail-input" nbInput fullWidth fieldSize="medium">
+    </div>
+    <div class="field-container">
+      <div for="todo-description" class="input-label">
+        Description:
+      </div>
+      <input type="text" name="todo-description" class="detail-input" nbInput fullWidth fieldSize="medium">
+    </div>
+    <div class="field-container">
+      <div for="task-name" class="input-label">
+        Task:
+      </div>
+      <input type="text" name="task-name" class="detail-input" nbInput fullWidth fieldSize="medium">
+    </div>
+    <div class="field-container">
+      <div for="task-description" class="input-label">
+        Task Description:
+      </div>
+      <input type="text" name="task-description" class="detail-input" nbInput fullWidth fieldSize="medium">
+    </div>
+  </nb-card-body>
+  <nb-card-footer>
+    <div class="footer-content">
+      <button nbButton status="success" class="action-button">
+        <nb-icon icon="save-outline"></nb-icon>
+      </button>
+      <button nbButton status="danger" class="action-button">
+        <nb-icon icon="trash-2-outline"></nb-icon>
+      </button>
+    </div>
+  </nb-card-footer>
+</nb-card>
