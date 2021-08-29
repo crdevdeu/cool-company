@@ -20,7 +20,10 @@
               "apps/cool-todo/src/favicon.ico",
               "apps/cool-todo/src/assets"
             ],
-            "styles": ["./node_modules/@nebular/theme/styles/prebuilt/dark.css", "apps/cool-todo/src/styles.css"],
+            "styles": [
+              "./node_modules/@nebular/theme/styles/prebuilt/dark.css",
+              "apps/cool-todo/src/styles.css"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -168,6 +171,31 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/cool-todo-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "feature-todos-list": {
+      "projectType": "library",
+      "root": "libs/feature-todos-list",
+      "sourceRoot": "libs/feature-todos-list/src",
+      "prefix": "cool-company",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/feature-todos-list"],
+          "options": {
+            "jestConfig": "libs/feature-todos-list/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/feature-todos-list/src/**/*.ts",
+              "libs/feature-todos-list/src/**/*.html"
+            ]
           }
         }
       }

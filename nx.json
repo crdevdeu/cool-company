@@ -36,6 +36,9 @@
     "cool-todo-e2e": {
       "tags": [],
       "implicitDependencies": ["cool-todo"]
+    },
+    "feature-todos-list": {
+      "tags": ["feature"]
     }
   }
 }
