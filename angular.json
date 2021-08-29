@@ -200,6 +200,31 @@
         }
       }
     },
+    "feature-detail-form": {
+      "projectType": "library",
+      "root": "libs/feature-detail-form",
+      "sourceRoot": "libs/feature-detail-form/src",
+      "prefix": "cool-company",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/feature-detail-form"],
+          "options": {
+            "jestConfig": "libs/feature-detail-form/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/feature-detail-form/src/**/*.ts",
+              "libs/feature-detail-form/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "feature-todos-list": {
       "projectType": "library",
       "root": "libs/feature-todos-list",
@@ -245,6 +270,31 @@
             "lintFilePatterns": [
               "libs/ui-create-todo/src/**/*.ts",
               "libs/ui-create-todo/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "ui-detail-form": {
+      "projectType": "library",
+      "root": "libs/ui-detail-form",
+      "sourceRoot": "libs/ui-detail-form/src",
+      "prefix": "cool-company",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui-detail-form"],
+          "options": {
+            "jestConfig": "libs/ui-detail-form/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ui-detail-form/src/**/*.ts",
+              "libs/ui-detail-form/src/**/*.html"
             ]
           }
         }

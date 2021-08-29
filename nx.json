@@ -40,10 +40,16 @@
     "feature-create-todo": {
       "tags": ["feature"]
     },
+    "feature-detail-form": {
+      "tags": ["feature"]
+    },
     "feature-todos-list": {
       "tags": ["feature"]
     },
     "ui-create-todo": {
+      "tags": ["ui"]
+    },
+    "ui-detail-form": {
       "tags": ["ui"]
     },
     "ui-todos-list": {
