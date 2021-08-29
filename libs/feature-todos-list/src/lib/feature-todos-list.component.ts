@@ -14,4 +14,8 @@ export class FeatureTodosListComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  onTodoSave($event: any) {
+    console.log($event);
+  }
 }

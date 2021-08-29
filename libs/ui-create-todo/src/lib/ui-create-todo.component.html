@@ -3,15 +3,16 @@
     Add something to do
   </nb-card-header>
   <nb-card-body class="create-todo-content">
-    <nb-form-field>
-      <input type="text" [fullWidth]="true" nbInput>
-      <button nbSuffix nbButton ghost>
-        <nb-icon icon="checkmark-outline"
-                 pack="eva"
-                 attr.aria-label="Add something to do">
-        </nb-icon>
-      </button>
-    </nb-form-field>
-
+    <form [formGroup]="newTodoFormGroup">
+      <nb-form-field>
+        <input type="text" [fullWidth]="true" nbInput formControlName="newTodo">
+        <button nbSuffix nbButton ghost (click)="saveNewTodo()">
+          <nb-icon icon="checkmark-outline"
+                   pack="eva"
+                   attr.aria-label="Add something to do">
+          </nb-icon>
+        </button>
+      </nb-form-field>
+    </form>
   </nb-card-body>
 </nb-card>

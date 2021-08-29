@@ -3,13 +3,14 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'cool-company-feature-create-todo',
   templateUrl: './feature-create-todo.component.html',
-  styleUrls: ['./feature-create-todo.component.css']
+  styleUrls: ['./feature-create-todo.component.css'],
 })
 export class FeatureCreateTodoComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  onSaveTodo($event: any) {
+    console.log($event);
   }
-
 }

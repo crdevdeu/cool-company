@@ -9,6 +9,7 @@ import {
   NbFormFieldModule,
   NbInputModule,
 } from '@nebular/theme';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import {
     NbButtonModule,
     NbFormFieldModule,
     NbInputModule,
+    ReactiveFormsModule,
   ],
   declarations: [UiTodoListComponent],
   exports: [UiTodoListComponent],

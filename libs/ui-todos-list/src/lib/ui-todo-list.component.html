@@ -16,7 +16,7 @@
       <ng-template #editItem>
         <nb-form-field class="edit-item-container">
           <input type="text" [fullWidth]="true" [value]="todo.description" nbInput>
-          <button nbSuffix nbButton ghost (click)="saveTodoEdit(todo.id)">
+          <button nbSuffix nbButton ghost (click)="saveTodoEdit(todo)">
             <nb-icon icon="save-outline"
                      pack="eva"
                      attr.aria-label="Add something to do">

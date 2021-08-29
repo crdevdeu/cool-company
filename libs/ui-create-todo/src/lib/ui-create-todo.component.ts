@@ -1,15 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'cool-company-ui-create-todo',
   templateUrl: './ui-create-todo.component.html',
-  styleUrls: ['./ui-create-todo.component.css']
+  styleUrls: ['./ui-create-todo.component.css'],
 })
 export class UiCreateTodoComponent implements OnInit {
+  newTodoFormGroup: FormGroup;
 
-  constructor() { }
+  @Output() saveTodo = new EventEmitter<any>();
 
-  ngOnInit(): void {
+  constructor(private fb: FormBuilder) {
+    this.newTodoFormGroup = this.fb.group({
+      newTodo: [''],
+    });
   }
 
+  ngOnInit(): void {}
+
+  saveNewTodo() {
+    const newTodoValue = this.newTodoFormGroup.get('newTodo')?.value;
+    this.saveTodo.emit(newTodoValue);
+  }
 }
