@@ -7,6 +7,7 @@ import {
   NbIconModule,
   NbButtonModule,
 } from '@nebular/theme';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import {
     NbInputModule,
     NbIconModule,
     NbButtonModule,
+    ReactiveFormsModule,
   ],
   declarations: [UiDetailFormComponent],
   exports: [UiDetailFormComponent],

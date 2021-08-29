@@ -3,37 +3,39 @@
     Edit todo
   </nb-card-header>
   <nb-card-body class="todo-detail-content">
-    <div class="field-container">
-       <div for="todo-name" class="input-label">
-        Name:
-      </div>
-      <input type="text" name="todo-name" class="detail-input" nbInput fullWidth fieldSize="medium">
-    </div>
-    <div class="field-container">
-      <div for="todo-description" class="input-label">
-        Description:
-      </div>
-      <input type="text" name="todo-description" class="detail-input" nbInput fullWidth fieldSize="medium">
-    </div>
-    <div class="field-container">
-      <div for="task-name" class="input-label">
-        Task:
-      </div>
-      <input type="text" name="task-name" class="detail-input" nbInput fullWidth fieldSize="medium">
-    </div>
-    <div class="field-container">
-      <div for="task-description" class="input-label">
-        Task Description:
-      </div>
-      <input type="text" name="task-description" class="detail-input" nbInput fullWidth fieldSize="medium">
-    </div>
+    <form [formGroup]="detailForm">
+      <div class="field-container">
+        <div for="todo-name" class="input-label">
+         Name:
+       </div>
+       <input type="text" name="todo-name" class="detail-input" nbInput fullWidth fieldSize="medium" formControlName="todoName">
+     </div>
+     <div class="field-container">
+       <div for="todo-description" class="input-label">
+         Description:
+       </div>
+       <input type="text" name="todo-description" class="detail-input" nbInput fullWidth fieldSize="medium" formControlName="todoDescription">
+     </div>
+     <div class="field-container">
+       <div for="task-name" class="input-label">
+         Task:
+       </div>
+       <input type="text" name="task-name" class="detail-input" nbInput fullWidth fieldSize="medium" formControlName="taskName">
+     </div>
+     <div class="field-container">
+       <div for="task-description" class="input-label">
+         Task Description:
+       </div>
+       <input type="text" name="task-description" class="detail-input" nbInput fullWidth formControlName="taskDescription">
+     </div>
+    </form>
   </nb-card-body>
   <nb-card-footer>
     <div class="footer-content">
       <button nbButton status="success" class="action-button">
         <nb-icon icon="save-outline"></nb-icon>
       </button>
-      <button nbButton status="danger" class="action-button">
+      <button nbButton status="danger" class="action-button" (click)="triggerDeleteTodo()">
         <nb-icon icon="trash-2-outline"></nb-icon>
       </button>
     </div>
