@@ -8,6 +8,8 @@ import { NbIconModule, NbLayoutModule, NbThemeModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,6 +23,9 @@ import { RouterModule } from '@angular/router';
     NbLayoutModule,
     NbIconModule,
     RouterModule,
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot([]),
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

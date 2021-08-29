@@ -24,6 +24,9 @@
       "@cool-company/feature-todos-list": [
         "libs/feature-todos-list/src/index.ts"
       ],
+      "@cool-company/shared-todos-state": [
+        "libs/shared-todos-state/src/index.ts"
+      ],
       "@cool-company/ui-create-todo": ["libs/ui-create-todo/src/index.ts"],
       "@cool-company/ui-detail-form": ["libs/ui-detail-form/src/index.ts"],
       "@cool-company/ui-todos-list": ["libs/ui-todos-list/src/index.ts"]

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TodosFacade } from '@cool-company/shared-todos-state';
 
 @Component({
   selector: 'cool-company-feature-todos-list',
@@ -30,9 +31,14 @@ export class FeatureTodosListComponent implements OnInit {
     },
   ];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private todosFacade: TodosFacade) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.todosFacade.init();
+    this.todosFacade.allTodos$.subscribe((data: any) => {
+      console.log(data);
+    });
+  }
 
   onTodoEdit(todo: any) {
     this.router.navigateByUrl(`detail/${todo.id}`);

@@ -46,6 +46,9 @@
     "feature-todos-list": {
       "tags": ["feature"]
     },
+    "shared-todos-state": {
+      "tags": []
+    },
     "ui-create-todo": {
       "tags": ["ui"]
     },

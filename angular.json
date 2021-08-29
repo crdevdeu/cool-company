@@ -250,6 +250,31 @@
         }
       }
     },
+    "shared-todos-state": {
+      "projectType": "library",
+      "root": "libs/shared-todos-state",
+      "sourceRoot": "libs/shared-todos-state/src",
+      "prefix": "cool-company",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared-todos-state"],
+          "options": {
+            "jestConfig": "libs/shared-todos-state/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared-todos-state/src/**/*.ts",
+              "libs/shared-todos-state/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "ui-create-todo": {
       "projectType": "library",
       "root": "libs/ui-create-todo",
