@@ -34,9 +34,8 @@ export class FeatureTodosListComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onTodoEdit($event: any) {
-    console.log($event);
-    this.router.navigateByUrl('detail');
+  onTodoEdit(todo: any) {
+    this.router.navigateByUrl(`detail/${todo.id}`);
   }
 
   onTodoRemove($event: any) {

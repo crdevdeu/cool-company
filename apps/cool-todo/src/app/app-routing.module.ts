@@ -8,10 +8,11 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
   },
   {
-    path: 'detail',
+    path: 'detail/:id',
     loadChildren: () =>
       import('./detail/detail.module').then((m) => m.DetailModule),
   },
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({
