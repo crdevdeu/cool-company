@@ -5,3 +5,9 @@
 .create-todo-container {
   height: unset !important;
 }
+
+.create-todo-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

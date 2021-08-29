@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NbIconModule, NbLayoutModule, NbThemeModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { AppRoutingModule } from './app-routing.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +20,7 @@ import { AppRoutingModule } from './app-routing.module';
     NbEvaIconsModule,
     NbLayoutModule,
     NbIconModule,
+    RouterModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

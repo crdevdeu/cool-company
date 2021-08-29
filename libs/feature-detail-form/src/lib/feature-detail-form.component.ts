@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'cool-company-feature-detail-form',
@@ -16,7 +17,7 @@ export class FeatureDetailFormComponent implements OnInit {
       description: 'this is the description of a task',
     },
   };
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     console.log('detail form is instantiated');
@@ -28,5 +29,9 @@ export class FeatureDetailFormComponent implements OnInit {
 
   onSaveEditedTodo($event: any) {
     console.log($event);
+  }
+
+  onBackButtonClick($event: any) {
+    this.router.navigateByUrl('/');
   }
 }

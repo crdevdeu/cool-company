@@ -29,3 +29,20 @@
   align-items: center;
   justify-content: flex-end;
 }
+
+.back-icon {
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.detail-form-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-text {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}

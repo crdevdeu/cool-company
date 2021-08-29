@@ -11,6 +11,7 @@ export class UiDetailFormComponent implements OnInit {
   @Input() todo: any;
   @Output() deleteTodo = new EventEmitter<any>();
   @Output() saveEditedTodo = new EventEmitter<any>();
+  @Output() backButtonClick = new EventEmitter<any>();
 
   constructor(private fb: FormBuilder) {
     this.detailForm = this.fb.group({
@@ -38,6 +39,10 @@ export class UiDetailFormComponent implements OnInit {
   triggerSaveEditedTodo() {
     const todo = this.getTodoFromForm();
     this.saveEditedTodo.emit(todo);
+  }
+
+  navigateBack() {
+    this.backButtonClick.emit();
   }
 
   private getTodoFromForm() {

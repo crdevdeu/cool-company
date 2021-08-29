@@ -1,6 +1,7 @@
 <nb-card size="small" class="todo-detail-container">
-  <nb-card-header>
-    Edit todo
+  <nb-card-header class="detail-form-header">
+    <a (click)="navigateBack()" class="back-icon"><nb-icon icon="arrow-ios-back-outline"></nb-icon></a>
+    <span class="header-text">Edit todo</span>
   </nb-card-header>
   <nb-card-body class="todo-detail-content">
     <form [formGroup]="detailForm">

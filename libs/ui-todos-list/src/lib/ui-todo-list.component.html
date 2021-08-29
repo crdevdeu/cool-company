@@ -1,6 +1,6 @@
 <nb-card size="medium">
-  <nb-card-header>
-    Stuff to do
+  <nb-card-header class="todo-list-header">
+    <span>Stuff to do</span>
   </nb-card-header>
   <nb-list *ngIf="todos.length > 0; else noContent">
     <nb-list-item *ngFor="let todo of todos">
