@@ -16,7 +16,14 @@ export class TodosEffects {
         run: (action) => {
           return this.todoService.getTodos().pipe(
             map((todos: any) => {
-              return TodosActions.loadTodosSuccess({ todos });
+              const todosArr = todos.map((todo: any) => {
+                return {
+                  name: todo.data.message,
+                  id: todo.ref['@ref'].id,
+                };
+              });
+              console.log(todosArr);
+              return TodosActions.loadTodosSuccess({ todos: todosArr });
             })
           );
         },
