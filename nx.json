@@ -39,6 +39,9 @@
     },
     "feature-todos-list": {
       "tags": ["feature"]
+    },
+    "ui-todos-list": {
+      "tags": ["ui"]
     }
   }
 }

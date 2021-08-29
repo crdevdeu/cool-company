@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home.routing.module';
 import { NbLayoutModule, NbSidebarModule, NbIconModule } from '@nebular/theme';
+import { FeatureTodosListModule } from '@cool-company/feature-todos-list';
 
 @NgModule({
   declarations: [HomeComponent],
@@ -11,6 +12,7 @@ import { NbLayoutModule, NbSidebarModule, NbIconModule } from '@nebular/theme';
     NbIconModule,
     CommonModule,
     HomeRoutingModule,
+    FeatureTodosListModule,
     NbLayoutModule,
     NbSidebarModule.forRoot(),
   ],

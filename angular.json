@@ -199,6 +199,31 @@
           }
         }
       }
+    },
+    "ui-todos-list": {
+      "projectType": "library",
+      "root": "libs/ui-todos-list",
+      "sourceRoot": "libs/ui-todos-list/src",
+      "prefix": "cool-company",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui-todos-list"],
+          "options": {
+            "jestConfig": "libs/ui-todos-list/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ui-todos-list/src/**/*.ts",
+              "libs/ui-todos-list/src/**/*.html"
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {

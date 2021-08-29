@@ -17,7 +17,8 @@
     "paths": {
       "@cool-company/feature-todos-list": [
         "libs/feature-todos-list/src/index.ts"
-      ]
+      ],
+      "@cool-company/ui-todos-list": ["libs/ui-todos-list/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
