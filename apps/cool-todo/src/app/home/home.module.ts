@@ -4,6 +4,7 @@ import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home.routing.module';
 import { NbLayoutModule, NbSidebarModule, NbIconModule } from '@nebular/theme';
 import { FeatureTodosListModule } from '@cool-company/feature-todos-list';
+import { FeatureCreateTodoModule } from '@cool-company/feature-create-todo';
 
 @NgModule({
   declarations: [HomeComponent],
@@ -13,6 +14,7 @@ import { FeatureTodosListModule } from '@cool-company/feature-todos-list';
     CommonModule,
     HomeRoutingModule,
     FeatureTodosListModule,
+    FeatureCreateTodoModule,
     NbLayoutModule,
     NbSidebarModule.forRoot(),
   ],

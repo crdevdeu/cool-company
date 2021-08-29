@@ -175,6 +175,31 @@
         }
       }
     },
+    "feature-create-todo": {
+      "projectType": "library",
+      "root": "libs/feature-create-todo",
+      "sourceRoot": "libs/feature-create-todo/src",
+      "prefix": "cool-company",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/feature-create-todo"],
+          "options": {
+            "jestConfig": "libs/feature-create-todo/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/feature-create-todo/src/**/*.ts",
+              "libs/feature-create-todo/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "feature-todos-list": {
       "projectType": "library",
       "root": "libs/feature-todos-list",
@@ -195,6 +220,31 @@
             "lintFilePatterns": [
               "libs/feature-todos-list/src/**/*.ts",
               "libs/feature-todos-list/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "ui-create-todo": {
+      "projectType": "library",
+      "root": "libs/ui-create-todo",
+      "sourceRoot": "libs/ui-create-todo/src",
+      "prefix": "cool-company",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui-create-todo"],
+          "options": {
+            "jestConfig": "libs/ui-create-todo/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ui-create-todo/src/**/*.ts",
+              "libs/ui-create-todo/src/**/*.html"
             ]
           }
         }

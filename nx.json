@@ -37,8 +37,14 @@
       "tags": [],
       "implicitDependencies": ["cool-todo"]
     },
+    "feature-create-todo": {
+      "tags": ["feature"]
+    },
     "feature-todos-list": {
       "tags": ["feature"]
+    },
+    "ui-create-todo": {
+      "tags": ["ui"]
     },
     "ui-todos-list": {
       "tags": ["ui"]
