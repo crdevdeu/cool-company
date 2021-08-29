@@ -5,3 +5,11 @@
 .empty-text {
   text-align: center;
 }
+
+.todo-description {
+  flex: 1;
+}
+
+.action-button {
+  margin-right: 5px;
+}

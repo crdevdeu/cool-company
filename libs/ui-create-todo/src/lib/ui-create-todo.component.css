@@ -1,5 +1,7 @@
 :host {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 50%;
+}
+
+.create-todo-container {
+  height: unset !important;
 }

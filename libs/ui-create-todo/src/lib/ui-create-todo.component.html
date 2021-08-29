@@ -1,1 +1,17 @@
-<p>ui-create-todo works!</p>
+<nb-card size="small" class="create-todo-container">
+  <nb-card-header>
+    Add something to do
+  </nb-card-header>
+  <nb-card-body class="create-todo-content">
+    <nb-form-field>
+      <input type="text" [fullWidth]="true" nbInput>
+      <button nbSuffix nbButton ghost>
+        <nb-icon icon="checkmark-outline"
+                 pack="eva"
+                 attr.aria-label="Add something to do">
+        </nb-icon>
+      </button>
+    </nb-form-field>
+
+  </nb-card-body>
+</nb-card>

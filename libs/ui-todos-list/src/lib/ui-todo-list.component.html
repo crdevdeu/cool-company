@@ -4,7 +4,13 @@
   </nb-card-header>
   <nb-list *ngIf="todos.length > 0; else noContent">
     <nb-list-item *ngFor="let todo of todos">
-      {{ todo.description }}
+      <span class="todo-description">{{ todo.description }}</span>
+      <button nbButton status="primary" class="action-button">
+        <nb-icon icon="edit-2-outline"></nb-icon>
+      </button>
+      <button nbButton status="danger" class="action-button">
+        <nb-icon icon="trash-2-outline"></nb-icon>
+      </button>
     </nb-list-item>
   </nb-list>
   <ng-template #noContent>
