@@ -6,6 +6,8 @@ import {
   NbCardModule,
   NbIconModule,
   NbButtonModule,
+  NbFormFieldModule,
+  NbInputModule,
 } from '@nebular/theme';
 
 @NgModule({
@@ -15,6 +17,8 @@ import {
     NbCardModule,
     NbIconModule,
     NbButtonModule,
+    NbFormFieldModule,
+    NbInputModule,
   ],
   declarations: [UiTodoListComponent],
   exports: [UiTodoListComponent],

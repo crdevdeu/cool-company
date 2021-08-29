@@ -6,7 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./feature-todos-list.component.css'],
 })
 export class FeatureTodosListComponent implements OnInit {
-  mockTodos = [{ description: 'have fun' }];
+  mockTodos = [
+    { description: 'have fun', id: '1234' },
+    { description: 'do this thing', id: '3256' },
+  ];
 
   constructor() {}
 

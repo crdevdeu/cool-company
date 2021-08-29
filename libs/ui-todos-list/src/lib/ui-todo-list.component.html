@@ -4,13 +4,26 @@
   </nb-card-header>
   <nb-list *ngIf="todos.length > 0; else noContent">
     <nb-list-item *ngFor="let todo of todos">
-      <span class="todo-description">{{ todo.description }}</span>
-      <button nbButton status="primary" class="action-button">
-        <nb-icon icon="edit-2-outline"></nb-icon>
-      </button>
-      <button nbButton status="danger" class="action-button">
-        <nb-icon icon="trash-2-outline"></nb-icon>
-      </button>
+      <div class="item-container" *ngIf="todoToEdit !== todo.id; else editItem">
+        <span class="todo-description">{{ todo.description }}</span>
+        <button nbButton status="primary" class="action-button" (click)="setTodoToEdit(todo.id)">
+          <nb-icon icon="edit-2-outline"></nb-icon>
+        </button>
+        <button nbButton status="danger" class="action-button">
+          <nb-icon icon="trash-2-outline"></nb-icon>
+        </button>
+      </div>
+      <ng-template #editItem>
+        <nb-form-field class="edit-item-container">
+          <input type="text" [fullWidth]="true" [value]="todo.description" nbInput>
+          <button nbSuffix nbButton ghost (click)="saveTodoEdit(todo.id)">
+            <nb-icon icon="save-outline"
+                     pack="eva"
+                     attr.aria-label="Add something to do">
+            </nb-icon>
+          </button>
+        </nb-form-field>
+      </ng-template>
     </nb-list-item>
   </nb-list>
   <ng-template #noContent>

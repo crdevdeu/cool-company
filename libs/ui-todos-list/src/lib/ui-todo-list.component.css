@@ -1,5 +1,5 @@
 :host {
-  width: 50%;
+  width: 70%;
 }
 
 .empty-text {
@@ -12,4 +12,15 @@
 
 .action-button {
   margin-right: 5px;
+}
+
+.item-container {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+}
+
+.edit-item-container {
+  flex: 1;
 }

@@ -6,8 +6,17 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./ui-todo-list.component.css'],
 })
 export class UiTodoListComponent implements OnInit {
+  todoToEdit: any = null;
   @Input() todos: any[] = [];
   constructor() {}
 
   ngOnInit(): void {}
+
+  setTodoToEdit(id: string) {
+    this.todoToEdit = id;
+  }
+
+  saveTodoEdit(id: string) {
+    this.todoToEdit = null;
+  }
 }
