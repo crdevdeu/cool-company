@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormArray, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'cool-company-ui-todo-list',
@@ -8,28 +8,28 @@ import { FormArray, FormControl } from '@angular/forms';
 })
 export class UiTodoListComponent implements OnInit {
   todoToEdit: any = null;
-  todosFormArray = new FormArray([]);
+  todosFormGroup: FormGroup;
   @Input() todos: any[] = [];
   @Output() saveTodo = new EventEmitter<any>();
-  constructor() {}
-
-  ngOnInit(): void {
-    this.setFormArrayFromTodos();
-  }
-
-  setFormArrayFromTodos() {
-    this.todos.forEach((todo) => {
-      const control = new FormControl(todo);
-      this.todosFormArray.push(control);
+  constructor(private fb: FormBuilder) {
+    this.todosFormGroup = this.fb.group({
+      editTodo: [''],
     });
   }
 
-  setTodoToEdit(id: string) {
-    this.todoToEdit = id;
+  ngOnInit(): void {}
+
+  setTodoToEdit(todo: any) {
+    this.todoToEdit = todo.id;
+    this.todosFormGroup.get('editTodo')?.setValue(todo.description);
   }
 
   saveTodoEdit(todo: any) {
-    this.todoToEdit = null;
-    this.saveTodo.emit(todo);
+    // this.todoToEdit = null;
+    const todoNewValue = {
+      id: todo.id,
+      description: this.todosFormGroup.get('editTodo')?.value,
+    };
+    this.saveTodo.emit(todoNewValue);
   }
 }
