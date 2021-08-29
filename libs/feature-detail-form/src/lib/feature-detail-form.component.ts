@@ -25,4 +25,8 @@ export class FeatureDetailFormComponent implements OnInit {
   onDeleteTodo($event: any) {
     console.log($event);
   }
+
+  onSaveEditedTodo($event: any) {
+    console.log($event);
+  }
 }

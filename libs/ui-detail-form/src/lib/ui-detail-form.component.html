@@ -32,7 +32,7 @@
   </nb-card-body>
   <nb-card-footer>
     <div class="footer-content">
-      <button nbButton status="success" class="action-button">
+      <button nbButton status="success" class="action-button" (click)="triggerSaveEditedTodo()">
         <nb-icon icon="save-outline"></nb-icon>
       </button>
       <button nbButton status="danger" class="action-button" (click)="triggerDeleteTodo()">

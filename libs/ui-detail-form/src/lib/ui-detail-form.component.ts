@@ -10,6 +10,7 @@ export class UiDetailFormComponent implements OnInit {
   detailForm: FormGroup;
   @Input() todo: any;
   @Output() deleteTodo = new EventEmitter<any>();
+  @Output() saveEditedTodo = new EventEmitter<any>();
 
   constructor(private fb: FormBuilder) {
     this.detailForm = this.fb.group({
@@ -32,6 +33,11 @@ export class UiDetailFormComponent implements OnInit {
   triggerDeleteTodo() {
     const todo = this.getTodoFromForm();
     this.deleteTodo.emit(todo);
+  }
+
+  triggerSaveEditedTodo() {
+    const todo = this.getTodoFromForm();
+    this.saveEditedTodo.emit(todo);
   }
 
   private getTodoFromForm() {
