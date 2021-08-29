@@ -1,10 +1,13 @@
 <nb-card size="medium">
   <nb-card-header>
-    Some fruits
+    Stuff to do
   </nb-card-header>
-  <nb-list>
-    <nb-list-item>
-      Banana
+  <nb-list *ngIf="todos.length > 0; else noContent">
+    <nb-list-item *ngFor="let todo of todos">
+      {{ todo.description }}
     </nb-list-item>
   </nb-list>
+  <ng-template #noContent>
+    <p class="empty-text">Nothing to do</p>
+  </ng-template>
 </nb-card>

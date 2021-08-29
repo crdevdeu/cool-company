@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'cool-company-ui-todo-list',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ui-todo-list.component.css'],
 })
 export class UiTodoListComponent implements OnInit {
+  @Input() todos: any[] = [];
   constructor() {}
 
   ngOnInit(): void {}
