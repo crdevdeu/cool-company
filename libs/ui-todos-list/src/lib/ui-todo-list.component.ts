@@ -21,14 +21,14 @@ export class UiTodoListComponent implements OnInit {
 
   setTodoToEdit(todo: any) {
     this.todoToEdit = todo.id;
-    this.todosFormGroup.get('editTodo')?.setValue(todo.description);
+    this.todosFormGroup.get('editTodo')?.setValue(todo.name);
   }
 
   saveTodoEdit(todo: any) {
     // this.todoToEdit = null;
     const todoNewValue = {
       id: todo.id,
-      description: this.todosFormGroup.get('editTodo')?.value,
+      name: this.todosFormGroup.get('editTodo')?.value,
     };
     this.saveTodo.emit(todoNewValue);
   }

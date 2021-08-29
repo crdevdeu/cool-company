@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeatureTodosListComponent implements OnInit {
   mockTodos = [
-    { description: 'have fun', id: '1234' },
-    { description: 'do this thing', id: '3256' },
+    { name: 'have fun', id: '1234' },
+    { name: 'do this thing', id: '3256' },
   ];
 
   constructor() {}

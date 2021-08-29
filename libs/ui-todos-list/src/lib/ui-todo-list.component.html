@@ -5,7 +5,7 @@
   <nb-list *ngIf="todos.length > 0; else noContent">
     <nb-list-item *ngFor="let todo of todos">
       <div class="item-container" *ngIf="todoToEdit !== todo.id; else editItem">
-        <span class="todo-description">{{ todo.description }}</span>
+        <span class="todo-name">{{ todo.name }}</span>
         <button nbButton status="primary" class="action-button" (click)="setTodoToEdit(todo)">
           <nb-icon icon="edit-2-outline"></nb-icon>
         </button>
@@ -16,7 +16,7 @@
       <ng-template #editItem>
         <form [formGroup]="todosFormGroup" class="edit-item-container">
           <nb-form-field>
-            <input type="text" [fullWidth]="true" [value]="todo.description" formControlName="editTodo" nbInput>
+            <input type="text" [fullWidth]="true" [value]="todo.name" formControlName="editTodo" nbInput>
             <button nbSuffix nbButton ghost (click)="saveTodoEdit(todo)">
               <nb-icon icon="save-outline"
                        pack="eva"
