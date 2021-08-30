@@ -5,6 +5,7 @@ import { TodoService } from '../services/todo.service';
 import { map } from 'rxjs/operators';
 
 import * as TodosActions from './todos.actions';
+import { ApiDecoderService } from '../services/api-decoder.service';
 
 @Injectable()
 export class TodosEffects {
@@ -16,16 +17,7 @@ export class TodosEffects {
           return this.todoService.getTodos().pipe(
             map((todos: any) => {
               const todosArr = todos.map((todo: any) => {
-                return {
-                  name: todo.data.name,
-                  description: todo.data.description,
-                  id: todo.ref['@ref'].id,
-                  task: {
-                    name: todo.data.task.name,
-                    description: todo.data.task.description,
-                    id: todo.ref['@ref'].id,
-                  },
-                };
+                return this.apiDecoderService.decodeTodoFromApi(todo);
               });
               return TodosActions.loadTodosSuccess({ todos: todosArr });
             })
@@ -46,16 +38,7 @@ export class TodosEffects {
         run: (action) => {
           return this.todoService.createTodo(action.todo).pipe(
             map((todo: any) => {
-              const { name, description, task } = todo.data;
-              const id = todo.ref['@ref'].id;
-
-              const newTodo = {
-                id,
-                name,
-                description,
-                task: { ...task, id },
-              };
-
+              const newTodo = this.apiDecoderService.decodeTodoFromApi(todo);
               return TodosActions.createTodoSuccess({ todo: newTodo });
             })
           );
@@ -74,16 +57,7 @@ export class TodosEffects {
         run: (action) => {
           return this.todoService.getTodo(action.id).pipe(
             map((todo: any) => {
-              const { name, description, task } = todo.data;
-              const id = todo.ref['@ref'].id;
-
-              const newTodo = {
-                id,
-                name,
-                description,
-                task: { ...task, id },
-              };
-
+              const newTodo = this.apiDecoderService.decodeTodoFromApi(todo);
               return TodosActions.getTodoSuccess({ todo: newTodo });
             })
           );
@@ -102,15 +76,7 @@ export class TodosEffects {
         run: (action) => {
           return this.todoService.deleteTodo(action.id).pipe(
             map((todo: any) => {
-              const { name, description, task } = todo.data;
-              const id = todo.ref['@ref'].id;
-
-              const newTodo = {
-                id,
-                name,
-                description,
-                task: { ...task, id },
-              };
+              const newTodo = this.apiDecoderService.decodeTodoFromApi(todo);
 
               return TodosActions.deleteTodoSuccess({ todo: newTodo });
             })
@@ -130,15 +96,7 @@ export class TodosEffects {
         run: (action) => {
           return this.todoService.editTodo(action.id, action.todo).pipe(
             map((todo: any) => {
-              const { name, description, task } = todo.data;
-              const id = todo.ref['@ref'].id;
-
-              const newTodo = {
-                id,
-                name,
-                description,
-                task: { ...task, id },
-              };
+              const newTodo = this.apiDecoderService.decodeTodoFromApi(todo);
 
               return TodosActions.editTodoSuccess({ todo: newTodo });
             })
@@ -153,6 +111,7 @@ export class TodosEffects {
 
   constructor(
     private readonly actions$: Actions,
-    private todoService: TodoService
+    private todoService: TodoService,
+    private apiDecoderService: ApiDecoderService
   ) {}
 }

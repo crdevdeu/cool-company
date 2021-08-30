@@ -7,6 +7,7 @@ import { TodosEffects } from './+state/todos.effects';
 import { TodosFacade } from './+state/todos.facade';
 import { TodoService } from './services/todo.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ApiDecoderService } from './services/api-decoder.service';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { HttpClientModule } from '@angular/common/http';
     StoreModule.forFeature(fromTodos.TODOS_FEATURE_KEY, fromTodos.reducer),
     EffectsModule.forFeature([TodosEffects]),
   ],
-  providers: [TodosFacade, TodoService],
+  providers: [TodosFacade, TodoService, ApiDecoderService],
 })
 export class SharedTodosStateModule {}
