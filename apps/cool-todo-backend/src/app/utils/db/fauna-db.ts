@@ -31,6 +31,12 @@ export class FaunaDb {
     );
   }
 
+  public getDocumentById(collectionName: string, id: string) {
+    return this.client.query(
+      this.q.Get(this.q.Ref(this.q.Collection(collectionName), id))
+    );
+  }
+
   public deleteDocument(collectionName: string, id: string) {
     return this.client.query(
       this.q.Delete(this.q.Ref(this.q.Collection(collectionName), id))

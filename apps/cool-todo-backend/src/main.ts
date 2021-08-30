@@ -40,6 +40,16 @@ app.delete('/api/todos/:id', (req, res) => {
     });
 });
 
+app.get('/api/todos/:id', (req, res) => {
+  FaunaDbInstance.getDocumentById('todos', req.params.id)
+    .then((result) => {
+      res.send(result);
+    })
+    .catch(() => {
+      res.sendStatus(500);
+    });
+});
+
 app.patch('/api/todos/:id', (req, res) => {
   FaunaDbInstance.updateDocument('todos', req.params.id, req.body)
     .then((result) => {
