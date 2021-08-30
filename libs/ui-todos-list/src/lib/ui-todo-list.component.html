@@ -4,7 +4,7 @@
   </nb-card-header>
   <nb-list *ngIf="todos.length > 0; else noContent">
     <nb-list-item *ngFor="let todo of todos">
-      <div class="item-container" *ngIf="todoToEdit !== todo.id">
+      <div class="item-container">
         <span class="todo-name">{{ todo.name }}</span>
         <button nbButton status="primary" class="action-button" (click)="triggerTodoEdit(todo)">
           <nb-icon icon="edit-2-outline"></nb-icon>

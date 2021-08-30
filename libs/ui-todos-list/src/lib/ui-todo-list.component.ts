@@ -7,7 +7,6 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./ui-todo-list.component.css'],
 })
 export class UiTodoListComponent implements OnInit {
-  todoToEdit: any = null;
   @Input() todos: any[] = [];
   @Output() editTodo = new EventEmitter<any>();
   @Output() removeTodo = new EventEmitter<any>();
@@ -16,9 +15,6 @@ export class UiTodoListComponent implements OnInit {
   ngOnInit(): void {}
 
   triggerTodoEdit(todo: any) {
-    this.todoToEdit = todo.id;
-
-    // this.todoToEdit = null;
     this.editTodo.emit(todo);
   }
 
