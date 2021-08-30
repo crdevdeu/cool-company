@@ -1,6 +1,12 @@
 # CoolCompany
 
-Fullstack application to perform CRUD operations with Todos
+Fullstack Angular/Express application to perform CRUD operations with Todos.
+
+## Pre-requisites
+
+- Angular CLI https://angular.io/cli
+- Nx https://nx.dev/
+- NodeJS https://nodejs.org/en/
 
 ## Development server
 
