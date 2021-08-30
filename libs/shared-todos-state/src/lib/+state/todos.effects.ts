@@ -18,8 +18,14 @@ export class TodosEffects {
             map((todos: any) => {
               const todosArr = todos.map((todo: any) => {
                 return {
-                  name: todo.data.message,
+                  name: todo.data.name,
+                  description: todo.data.description,
                   id: todo.ref['@ref'].id,
+                  task: {
+                    name: todo.data.task.name,
+                    description: todo.data.task.description,
+                    id: todo.ref['@ref'].id,
+                  },
                 };
               });
               console.log(todosArr);
