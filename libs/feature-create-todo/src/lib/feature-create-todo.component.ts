@@ -21,7 +21,7 @@ export class FeatureCreateTodoComponent implements OnInit {
   }
 
   showToast(position: any, status: any) {
-    this.toastrService.show('Todo created', `Success`, {
+    this.toastrService.show('Success', `Todo Created`, {
       position,
       status,
       icon: '',

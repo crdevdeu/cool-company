@@ -34,7 +34,7 @@ export class FeatureTodosListComponent implements OnInit {
   }
 
   showToast(position: any, status: any) {
-    this.toastrService.show('Todo deleted', `Success`, {
+    this.toastrService.show('Success', `Todo Deleted`, {
       position,
       status,
       icon: '',
