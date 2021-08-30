@@ -9,7 +9,6 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class UiDetailFormComponent implements OnInit {
   detailForm: FormGroup;
   @Input() todo: any;
-  @Output() deleteTodo = new EventEmitter<any>();
   @Output() saveEditedTodo = new EventEmitter<any>();
   @Output() backButtonClick = new EventEmitter<any>();
 
@@ -29,11 +28,6 @@ export class UiDetailFormComponent implements OnInit {
       taskName: this.todo.task.name,
       taskDescription: this.todo.task.description,
     });
-  }
-
-  triggerDeleteTodo() {
-    const todo = this.getTodoFromForm();
-    this.deleteTodo.emit(todo);
   }
 
   triggerSaveEditedTodo() {
