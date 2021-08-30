@@ -17,4 +17,8 @@ export class TodoService {
   getTodo(id: string) {
     return this.http.get(`${environment.apiHost}/api/todos/${id}`);
   }
+
+  deleteTodo(id: string) {
+    return this.http.delete(`${environment.apiHost}/api/todos/${id}`);
+  }
 }

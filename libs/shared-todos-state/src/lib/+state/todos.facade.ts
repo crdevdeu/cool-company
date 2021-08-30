@@ -31,4 +31,8 @@ export class TodosFacade {
   getTodo(id: string) {
     this.store.dispatch(TodosActions.getTodo({ id }));
   }
+
+  deleteTodo(id: string) {
+    this.store.dispatch(TodosActions.deleteTodo({ id }));
+  }
 }

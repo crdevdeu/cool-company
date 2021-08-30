@@ -7,9 +7,9 @@ import { TodosEntity } from './todos.models';
 export const TODOS_FEATURE_KEY = 'todos';
 
 export interface State extends EntityState<TodosEntity> {
-  selectedId?: string | number; // which Todos record has been selected
-  loaded: boolean; // has the Todos list been loaded
-  error?: string | null; // last known error (if any)
+  selectedId?: string | number;
+  loaded: boolean;
+  error?: string | null;
 }
 
 export interface TodosPartialState {
@@ -20,7 +20,6 @@ export const todosAdapter: EntityAdapter<TodosEntity> =
   createEntityAdapter<TodosEntity>();
 
 export const initialState: State = todosAdapter.getInitialState({
-  // set initial required properties
   loaded: false,
 });
 
@@ -40,7 +39,10 @@ const todosReducer = createReducer(
   on(TodosActions.getTodoSuccess, (state, { todo }) => ({
     ...state,
     selectedId: todo.id,
-  }))
+  })),
+  on(TodosActions.deleteTodoSuccess, (state, { todo }) =>
+    todosAdapter.removeOne(todo.id, state)
+  )
 );
 
 export function reducer(state: State | undefined, action: Action) {

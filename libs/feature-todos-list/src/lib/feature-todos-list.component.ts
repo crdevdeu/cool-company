@@ -22,7 +22,7 @@ export class FeatureTodosListComponent implements OnInit {
     this.router.navigateByUrl(`detail/${todo.id}`);
   }
 
-  onTodoRemove($event: any) {
-    console.log($event);
+  onTodoRemove(todo: any) {
+    this.todosFacade.deleteTodo(todo.id);
   }
 }

@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -15,7 +14,6 @@ import { EffectsModule } from '@ngrx/effects';
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    HttpClientModule,
     BrowserAnimationsModule,
     NbThemeModule.forRoot({ name: 'dark' }),
     AppRoutingModule,
@@ -25,7 +23,6 @@ import { EffectsModule } from '@ngrx/effects';
     RouterModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
-    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

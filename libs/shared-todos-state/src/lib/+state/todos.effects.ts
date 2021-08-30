@@ -27,7 +27,6 @@ export class TodosEffects {
                   },
                 };
               });
-              console.log(todosArr);
               return TodosActions.loadTodosSuccess({ todos: todosArr });
             })
           );
@@ -57,8 +56,6 @@ export class TodosEffects {
                 task: { ...task, id },
               };
 
-              console.log(newTodo);
-
               return TodosActions.createTodoSuccess({ todo: newTodo });
             })
           );
@@ -77,7 +74,6 @@ export class TodosEffects {
         run: (action) => {
           return this.todoService.getTodo(action.id).pipe(
             map((todo: any) => {
-              console.log(todo);
               const { name, description, task } = todo.data;
               const id = todo.ref['@ref'].id;
 
@@ -93,8 +89,35 @@ export class TodosEffects {
           );
         },
         onError: (action, error) => {
-          console.log(error);
           return TodosActions.getTodoError({ error });
+        },
+      })
+    )
+  );
+
+  deleteTodo$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(TodosActions.deleteTodo),
+      fetch({
+        run: (action) => {
+          return this.todoService.deleteTodo(action.id).pipe(
+            map((todo: any) => {
+              const { name, description, task } = todo.data;
+              const id = todo.ref['@ref'].id;
+
+              const newTodo = {
+                id,
+                name,
+                description,
+                task: { ...task, id },
+              };
+
+              return TodosActions.deleteTodoSuccess({ todo: newTodo });
+            })
+          );
+        },
+        onError: (action, error) => {
+          return TodosActions.deleteTodoError({ error });
         },
       })
     )

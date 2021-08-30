@@ -22,7 +22,6 @@ export class FeatureDetailFormComponent implements OnInit {
     this.todosFacade.selectedTodos$
       .pipe(filter((todo: any) => todo && todo.id === this.id))
       .subscribe((selectedTodo: any) => {
-        console.log(selectedTodo);
         if (selectedTodo) {
           this.todo = selectedTodo;
         }
