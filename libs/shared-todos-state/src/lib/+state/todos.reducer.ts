@@ -36,7 +36,11 @@ const todosReducer = createReducer(
   })),
   on(TodosActions.createTodoSuccess, (state, { todo }) =>
     todosAdapter.addOne(todo, state)
-  )
+  ),
+  on(TodosActions.getTodoSuccess, (state, { todo }) => ({
+    ...state,
+    selectedId: todo.id,
+  }))
 );
 
 export function reducer(state: State | undefined, action: Action) {

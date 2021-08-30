@@ -13,4 +13,8 @@ export class TodoService {
   createTodo(todo: any) {
     return this.http.post(`${environment.apiHost}/api/todos`, todo);
   }
+
+  getTodo(id: string) {
+    return this.http.get(`${environment.apiHost}/api/todos/${id}`);
+  }
 }

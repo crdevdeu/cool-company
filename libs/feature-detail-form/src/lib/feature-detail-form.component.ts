@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, OnChanges } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { TodosFacade } from '@cool-company/shared-todos-state';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'cool-company-feature-detail-form',
@@ -7,20 +9,30 @@ import { Router } from '@angular/router';
   styleUrls: ['./feature-detail-form.component.css'],
 })
 export class FeatureDetailFormComponent implements OnInit {
-  todo = {
-    name: 'do this thing',
-    id: '3256',
-    description: 'something i have to do',
-    task: {
-      id: 'taskid',
-      name: 'task name',
-      description: 'this is the description of a task',
-    },
-  };
-  constructor(private router: Router) {}
+  todo: any;
+  id: any;
+
+  constructor(
+    private router: Router,
+    private todosFacade: TodosFacade,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    console.log('detail form is instantiated');
+    this.todosFacade.selectedTodos$
+      .pipe(filter((todo: any) => todo && todo.id === this.id))
+      .subscribe((selectedTodo: any) => {
+        console.log(selectedTodo);
+        if (selectedTodo) {
+          this.todo = selectedTodo;
+        }
+      });
+
+    this.route.params.subscribe((params) => {
+      this.id = params['id'];
+      this.todosFacade.init();
+      this.todosFacade.getTodo(this.id);
+    });
   }
 
   onDeleteTodo($event: any) {

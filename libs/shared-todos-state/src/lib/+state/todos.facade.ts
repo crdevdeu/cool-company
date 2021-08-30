@@ -27,4 +27,8 @@ export class TodosFacade {
   createTodo(todo: any) {
     this.store.dispatch(TodosActions.createTodo({ todo }));
   }
+
+  getTodo(id: string) {
+    this.store.dispatch(TodosActions.getTodo({ id }));
+  }
 }

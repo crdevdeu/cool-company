@@ -64,8 +64,37 @@ export class TodosEffects {
           );
         },
         onError: (action, error) => {
-          console.error('Error', error);
-          return TodosActions.loadTodosFailure({ error });
+          return TodosActions.createTodoError({ error });
+        },
+      })
+    )
+  );
+
+  getTodo$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(TodosActions.getTodo),
+      fetch({
+        run: (action) => {
+          return this.todoService.getTodo(action.id).pipe(
+            map((todo: any) => {
+              console.log(todo);
+              const { name, description, task } = todo.data;
+              const id = todo.ref['@ref'].id;
+
+              const newTodo = {
+                id,
+                name,
+                description,
+                task: { ...task, id },
+              };
+
+              return TodosActions.getTodoSuccess({ todo: newTodo });
+            })
+          );
+        },
+        onError: (action, error) => {
+          console.log(error);
+          return TodosActions.getTodoError({ error });
         },
       })
     )

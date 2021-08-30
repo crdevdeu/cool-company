@@ -1,1 +1,3 @@
-<cool-company-ui-detail-form [todo]="todo" (deleteTodo)="onDeleteTodo($event)" (saveEditedTodo)="onSaveEditedTodo($event)" (backButtonClick)="onBackButtonClick($event)"></cool-company-ui-detail-form>
+<ng-container *ngIf="todo">
+  <cool-company-ui-detail-form [todo]="todo" (deleteTodo)="onDeleteTodo($event)" (saveEditedTodo)="onSaveEditedTodo($event)" (backButtonClick)="onBackButtonClick($event)"></cool-company-ui-detail-form>
+</ng-container>

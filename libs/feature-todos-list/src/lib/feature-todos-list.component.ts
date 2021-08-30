@@ -12,7 +12,7 @@ export class FeatureTodosListComponent implements OnInit {
   constructor(private router: Router, private todosFacade: TodosFacade) {}
 
   ngOnInit(): void {
-    this.todosFacade.allTodos$.subscribe((todos) => {
+    this.todosFacade.allTodos$.subscribe((todos: any) => {
       this.todos = todos;
     });
     this.todosFacade.init();
