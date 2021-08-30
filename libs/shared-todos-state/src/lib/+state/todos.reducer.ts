@@ -42,6 +42,9 @@ const todosReducer = createReducer(
   })),
   on(TodosActions.deleteTodoSuccess, (state, { todo }) =>
     todosAdapter.removeOne(todo.id, state)
+  ),
+  on(TodosActions.editTodoSuccess, (state, { todo }) =>
+    todosAdapter.updateOne(todo, state)
   )
 );
 

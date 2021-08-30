@@ -123,6 +123,34 @@ export class TodosEffects {
     )
   );
 
+  editTodo$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(TodosActions.editTodo),
+      fetch({
+        run: (action) => {
+          return this.todoService.editTodo(action.id, action.todo).pipe(
+            map((todo: any) => {
+              const { name, description, task } = todo.data;
+              const id = todo.ref['@ref'].id;
+
+              const newTodo = {
+                id,
+                name,
+                description,
+                task: { ...task, id },
+              };
+
+              return TodosActions.editTodoSuccess({ todo: newTodo });
+            })
+          );
+        },
+        onError: (action, error) => {
+          return TodosActions.deleteTodoError({ error });
+        },
+      })
+    )
+  );
+
   constructor(
     private readonly actions$: Actions,
     private todoService: TodoService

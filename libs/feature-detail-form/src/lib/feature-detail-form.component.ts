@@ -34,8 +34,8 @@ export class FeatureDetailFormComponent implements OnInit {
     });
   }
 
-  onSaveEditedTodo($event: any) {
-    console.log($event);
+  onSaveEditedTodo(todo: any) {
+    this.todosFacade.editTodo(this.id, todo);
   }
 
   onBackButtonClick($event: any) {

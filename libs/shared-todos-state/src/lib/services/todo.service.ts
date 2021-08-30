@@ -21,4 +21,8 @@ export class TodoService {
   deleteTodo(id: string) {
     return this.http.delete(`${environment.apiHost}/api/todos/${id}`);
   }
+
+  editTodo(id: string, todo: any) {
+    return this.http.patch(`${environment.apiHost}/api/todos/${id}`, todo);
+  }
 }

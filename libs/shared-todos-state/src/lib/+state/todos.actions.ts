@@ -57,3 +57,18 @@ export const deleteTodoError = createAction(
   '[Todos/API] Delete todo error',
   props<{ error: any }>()
 );
+
+export const editTodo = createAction(
+  '[Todos/API] Edit todo',
+  props<{ id: any; todo: any }>()
+);
+
+export const editTodoSuccess = createAction(
+  '[Todos/API] Edit todo success',
+  props<{ todo: any }>()
+);
+
+export const editTodoError = createAction(
+  '[Todos/API] Edit todo error',
+  props<{ error: any }>()
+);

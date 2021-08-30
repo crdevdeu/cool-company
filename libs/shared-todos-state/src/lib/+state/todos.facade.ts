@@ -35,4 +35,8 @@ export class TodosFacade {
   deleteTodo(id: string) {
     this.store.dispatch(TodosActions.deleteTodo({ id }));
   }
+
+  editTodo(id: string, todo: any) {
+    this.store.dispatch(TodosActions.editTodo({ id, todo }));
+  }
 }
