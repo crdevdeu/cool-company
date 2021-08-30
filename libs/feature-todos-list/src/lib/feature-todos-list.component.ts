@@ -8,36 +8,14 @@ import { TodosFacade } from '@cool-company/shared-todos-state';
   styleUrls: ['./feature-todos-list.component.css'],
 })
 export class FeatureTodosListComponent implements OnInit {
-  mockTodos = [
-    {
-      name: 'have fun',
-      description: 'having fun',
-      id: '1234',
-      task: {
-        id: 'taskid',
-        name: 'task name',
-        description: 'this is the description of a task',
-      },
-    },
-    {
-      name: 'do this thing',
-      id: '3256',
-      description: 'something i have to do',
-      task: {
-        id: 'taskid',
-        name: 'task name',
-        description: 'this is the description of a task',
-      },
-    },
-  ];
-
+  todos: any;
   constructor(private router: Router, private todosFacade: TodosFacade) {}
 
   ngOnInit(): void {
-    this.todosFacade.init();
-    this.todosFacade.allTodos$.subscribe((data: any) => {
-      console.log(data);
+    this.todosFacade.allTodos$.subscribe((todos) => {
+      this.todos = todos;
     });
+    this.todosFacade.init();
   }
 
   onTodoEdit(todo: any) {

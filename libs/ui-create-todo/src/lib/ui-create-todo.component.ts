@@ -21,6 +21,10 @@ export class UiCreateTodoComponent implements OnInit {
 
   saveNewTodo() {
     const newTodoValue = this.newTodoFormGroup.get('newTodo')?.value;
-    this.saveTodo.emit({ name: newTodoValue });
+    this.saveTodo.emit({
+      name: newTodoValue,
+      description: '',
+      task: { name: '', description: '' },
+    });
   }
 }

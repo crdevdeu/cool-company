@@ -12,3 +12,18 @@ export const loadTodosFailure = createAction(
   '[Todos/API] Load Todos Failure',
   props<{ error: any }>()
 );
+
+export const createTodo = createAction(
+  '[Todos/API] Create todo',
+  props<{ todo: any }>()
+);
+
+export const createTodoSuccess = createAction(
+  '[Todos/API] Create todo success',
+  props<{ todo: any }>()
+);
+
+export const createTodoError = createAction(
+  '[Todos/API] Create todo error',
+  props<{ error: any }>()
+);

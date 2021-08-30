@@ -5,7 +5,6 @@ import { TodoService } from '../services/todo.service';
 import { map } from 'rxjs/operators';
 
 import * as TodosActions from './todos.actions';
-import * as TodosFeature from './todos.reducer';
 
 @Injectable()
 export class TodosEffects {
@@ -30,6 +29,37 @@ export class TodosEffects {
               });
               console.log(todosArr);
               return TodosActions.loadTodosSuccess({ todos: todosArr });
+            })
+          );
+        },
+        onError: (action, error) => {
+          console.error('Error', error);
+          return TodosActions.loadTodosFailure({ error });
+        },
+      })
+    )
+  );
+
+  createTodo$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(TodosActions.createTodo),
+      fetch({
+        run: (action) => {
+          return this.todoService.createTodo(action.todo).pipe(
+            map((todo: any) => {
+              const { name, description, task } = todo.data;
+              const id = todo.ref['@ref'].id;
+
+              const newTodo = {
+                id,
+                name,
+                description,
+                task: { ...task, id },
+              };
+
+              console.log(newTodo);
+
+              return TodosActions.createTodoSuccess({ todo: newTodo });
             })
           );
         },

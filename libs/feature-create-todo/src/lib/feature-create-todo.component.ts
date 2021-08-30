@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TodosFacade } from '@cool-company/shared-todos-state';
 
 @Component({
   selector: 'cool-company-feature-create-todo',
@@ -6,11 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./feature-create-todo.component.css'],
 })
 export class FeatureCreateTodoComponent implements OnInit {
-  constructor() {}
+  constructor(private todosFacade: TodosFacade) {}
 
   ngOnInit(): void {}
 
-  onSaveTodo($event: any) {
-    console.log($event);
+  onSaveTodo(todo: any) {
+    this.todosFacade.createTodo(todo);
   }
 }

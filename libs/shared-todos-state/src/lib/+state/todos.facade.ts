@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { select, Store, Action } from '@ngrx/store';
 
 import * as TodosActions from './todos.actions';
-import * as TodosFeature from './todos.reducer';
 import * as TodosSelectors from './todos.selectors';
 
 @Injectable()
@@ -23,5 +22,9 @@ export class TodosFacade {
    */
   init() {
     this.store.dispatch(TodosActions.init());
+  }
+
+  createTodo(todo: any) {
+    this.store.dispatch(TodosActions.createTodo({ todo }));
   }
 }

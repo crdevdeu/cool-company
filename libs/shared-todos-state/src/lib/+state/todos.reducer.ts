@@ -30,7 +30,13 @@ const todosReducer = createReducer(
   on(TodosActions.loadTodosSuccess, (state, { todos }) =>
     todosAdapter.setAll(todos, { ...state, loaded: true })
   ),
-  on(TodosActions.loadTodosFailure, (state, { error }) => ({ ...state, error }))
+  on(TodosActions.loadTodosFailure, (state, { error }) => ({
+    ...state,
+    error,
+  })),
+  on(TodosActions.createTodoSuccess, (state, { todo }) =>
+    todosAdapter.addOne(todo, state)
+  )
 );
 
 export function reducer(state: State | undefined, action: Action) {
